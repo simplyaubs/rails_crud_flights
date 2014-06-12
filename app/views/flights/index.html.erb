@@ -15,7 +15,7 @@
 <% @flights.each do |flight| %>
 <ul>
   <li>
-    <%= flight.airline %>, <%= flight.destination %>
+    <%=link_to "#{flight.airline}", flight_path(flight) %>, <%= flight.destination %>
   </li>
 </ul>
 <% end %>

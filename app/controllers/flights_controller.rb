@@ -15,6 +15,21 @@ class FlightsController < ApplicationController
     end
   end
 
+  def show
+    @flight = Flight.find(params[:id])
+  end
+
+  def edit
+    @flight = Flight.find(params[:id])
+  end
+
+  def update
+    @flight = Flight.find(params[:id])
+    @flight.update_attributes!(flight_params)
+
+    redirect_to flights_path
+  end
+
   private
   def flight_params
     params.require(:flight).permit(:airline, :destination)
