@@ -1,0 +1,21 @@
+<%= form_for @flight do |f| %>
+<p>
+  <%= f.label :airline %>
+  <%= f.text_field :airline %>
+</p>
+  <p>
+    <%= f.label :destination %>
+    <%= f.text_field :destination %>
+  </p>
+  <p>
+    <%= f.submit 'Add flight' %>
+  </p>
+<% end %>
+
+<% @flights.each do |flight| %>
+<ul>
+  <li>
+    <%= flight.airline %>, <%= flight.destination %>
+  </li>
+</ul>
+<% end %>
