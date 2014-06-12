@@ -33,4 +33,21 @@ feature 'CRUD list of flights' do
     expect(page).to_not have_content 'Southwest'
     expect(page).to_not have_content 'Atlanta'
   end
+
+  scenario 'User can delete a flight' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a flight'
+    fill_in 'Airline', with: 'Southwest'
+    fill_in 'Destination', with: 'Atlanta'
+    click_on 'Add flight'
+    expect(page).to have_content 'Southwest'
+    expect(page).to have_content 'Atlanta'
+    click_on 'Southwest'
+    expect(page).to have_content 'Southwest'
+    expect(page).to have_content 'Atlanta'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Southwest'
+    expect(page).to_not have_content 'Atlanta'
+  end
 end
